@@ -1,6 +1,4 @@
-require("dotenv").config();
-
-module.exports = {
+export {
   apps: [
     {
       name: `polypane-tunnel`,
