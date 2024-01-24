@@ -34,9 +34,13 @@ const argv = optimist
     })
     .options('max-sockets', {
         default: 10,
-        describe:
-            'maximum number of tcp sockets each client is allowed to establish at one time (the tunnels)'
-    }).argv;
+        describe: 'maximum number of tcp sockets each client is allowed to establish at one time (the tunnels)'
+    })
+    .options('range', {
+        default: null,
+        describe: 'will bind incoming connections only on ports in range xxx:xxxx'
+    })
+    .argv;
 
 if (argv.help) {
     optimist.showHelp();
@@ -47,7 +51,8 @@ const server = CreateServer({
     max_tcp_sockets: argv['max-sockets'],
     secure: argv.secure,
     domain: argv.domain,
-    landing: argv.landing
+    landing: argv.landing,
+    range: argv.range,
 });
 
 server.listen(argv.port, argv.address, () => {
