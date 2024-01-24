@@ -1,9 +1,7 @@
-import log from 'book';
 import Koa from 'koa';
 import tldjs from 'tldjs';
 import Debug from 'debug';
 import http from 'http';
-import { hri } from 'human-readable-ids';
 import { humanId } from 'human-id';
 import Router from 'koa-router';
 
